@@ -22,4 +22,11 @@ services:
       - db
 
 volumes:
-  mysql_data:
+  mysql_data:logging:
+  driver: json-file
+  options:
+    labels: 'logging'
+    env: 'logging'
+    compress: 'true'
+    max-size: '10m'
+    max-file: '3'

@@ -80,7 +80,7 @@ DATABASES = {
         'NAME': 'sbook_db',
         'USER': 'root',
         'PASSWORD': '',
-        'HOST': 'db',
+        'HOST': 'host.docker.internal',
         'PORT': '3306',
     }
 }

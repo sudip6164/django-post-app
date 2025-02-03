@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}
+            Social Media app
+        {% endblock %} 
+    </title>
+</head>
+<body>
+    <nav>
+      <a href="/">Home</a>  
+      <a href="/">Posts</a>  
+      <a href="{% url "signup" %}">Signup</a>  
+      <a href="{% url "login" %}">Login</a>  
+      <a href="/">Logout</a>  
+      <a href="/">Profile</a>  
+    </nav>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>
