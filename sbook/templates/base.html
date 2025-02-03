@@ -15,7 +15,10 @@
       <a href="/">Posts</a>  
       <a href="{% url "signup" %}">Signup</a>  
       <a href="{% url "login" %}">Login</a>  
-      <a href="/">Logout</a>  
+      <form method="POST" action="{% url "logout" %}">
+        {% csrf_token %}
+        <button>Logout</button>
+      </form> 
       <a href="/">Profile</a>  
     </nav>
     <main>
