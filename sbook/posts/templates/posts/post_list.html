@@ -5,10 +5,14 @@
   <a href="{% url 'post_create' %}">Create New Post</a>
   <ul>
     {% for post in posts %}
-      <li>
-        <p>{{ post.content }}</p>
-        <p>by {{ post.user.username }} on {{ post.created_at }}</p>
-             </li>
+        <li>
+            <p>{{ post.content }}</p>
+            <p>by {{ post.user.username }} on {{ post.created_at }}</p>
+            {% if post.user == request.user %}
+            {% comment %} <a href="{% url 'post_edit' post.pk %}">Edit</a> {% endcomment %}
+            <a href="{% url 'post_delete' post.pk %}">Delete</a>
+            {% endif %}
+            </li>
     {% endfor %}
   </ul>
 {% endblock %}

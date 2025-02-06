@@ -20,3 +20,11 @@ def post_create(request):
     else:
         form = PostForm()
     return render(request, 'posts/post_form.html', {'form': form})
+
+@login_required
+def post_delete(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    if post.user == request.user:
+        post.delete()
+    return redirect('post_list')
+
