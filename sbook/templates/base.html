@@ -14,13 +14,16 @@
       <a href="/">Home</a>  
       <a href="{% url "post_list" %}">Feed</a> 
       <a href="/">My Posts</a>  
-      <a href="{% url "signup" %}">Signup</a>  
-      <a href="{% url "login" %}">Login</a>  
+      {% if user.is_authenticated%}
       <form method="POST" action="{% url "logout" %}">
         {% csrf_token %}
         <button>Logout</button>
       </form> 
       <a href="/">Profile</a>  
+      {% else %}
+      <a href="{% url "signup" %}">Signup</a> 
+      <a href="{% url "login" %}">Login</a>  
+      {% endif %}
     </nav>
     <main>
         {% block content %}{% endblock %}
