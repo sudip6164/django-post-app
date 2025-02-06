@@ -22,6 +22,21 @@ def post_create(request):
     return render(request, 'posts/post_form.html', {'form': form})
 
 @login_required
+def post_edit(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    if post.user != request.user:
+        return redirect('post_list')
+    if request.method == 'POST':
+        form = PostForm(request.POST, instance=post)
+        if form.is_valid():
+            form.save()
+            return redirect('post_list')
+    else:
+        form = PostForm(instance=post)
+    return render(request, 'posts/post_form.html', {'form': form})
+
+
+@login_required
 def post_delete(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if post.user == request.user:
