@@ -1,3 +1,5 @@
+version: '3.8'
+
 services:
   db:
     image: mariadb:10.5.27
@@ -10,6 +12,11 @@ services:
       - "3306:3306"
     volumes:
       - mysql_data:/var/lib/mysql
+    logging:
+      driver: json-file
+      options:
+        max-size: '10m'
+        max-file: '3'
 
   web:
     build: .
@@ -20,13 +27,11 @@ services:
       - "8000:8000"
     depends_on:
       - db
+    logging:
+      driver: json-file
+      options:
+        max-size: '10m'
+        max-file: '3'
 
 volumes:
-  mysql_data:logging:
-  driver: json-file
-  options:
-    labels: 'logging'
-    env: 'logging'
-    compress: 'true'
-    max-size: '10m'
-    max-file: '3'
+  mysql_data:
