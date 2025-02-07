@@ -14,8 +14,7 @@
       <a href="/">Home</a>  
       <a href="{% url "post_list" %}">Feed</a> 
       {% if user.is_authenticated %}
-      <a href="{% url 'user_post_list' %}">My Posts</a>
-      <a href="/">Profile</a>
+      <a href="{% url 'profile' user.username%}">Profile</a>
       <form method="POST" action="{% url "logout" %}">
         {% csrf_token %}
         <button>Logout</button>

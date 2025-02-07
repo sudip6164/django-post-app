@@ -1,7 +1,8 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout
-
+from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def signup_view(request):
@@ -28,3 +29,13 @@ def logout_view(request):
     if request.method=="POST":
         logout(request)
     return redirect("home")
+
+@login_required
+def profile(request, username):
+    user = get_object_or_404(User, username=username)
+    posts = user.posts.all()
+    context = {
+        'user': user,
+        'posts': posts,
+    }
+    return render(request, 'users/profile.html', context)

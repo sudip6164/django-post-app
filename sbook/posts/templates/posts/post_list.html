@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
 
+{% block title %}
+  All Posts
+{% endblock %} 
+
 {% block content %}
   <h2>All Posts</h2>
   <a href="{% url 'post_create' %}">Create New Post</a>

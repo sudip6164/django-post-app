@@ -41,8 +41,3 @@ def post_delete(request, pk):
     if post.user == request.user:
         post.delete()
     return redirect('post_list')
-
-@login_required
-def user_post_list(request):
-    posts = Post.objects.filter(user=request.user).order_by('-created_at')
-    return render(request, 'posts/user_post_list.html', {'posts': posts})
