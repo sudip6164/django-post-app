@@ -1,0 +1,79 @@
+/* Define color variables */
+:root {
+    --primary-color: #90ee90;
+    --secondary-color: #77dd77;
+    --background-color: #f0f7f4;
+    --text-color: #ffffff;
+    --danger-color: #e63946;
+    --danger-hover-color: #c62f3b;
+}
+
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--background-color);
+}
+
+/* Navigation Bar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--primary-color);
+    padding: 15px 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar_logo img {
+    height: 40px;
+    width: auto;
+}
+
+.navbar_links,
+.navbar_auth {
+    display: flex;
+    gap: 20px;
+}
+
+.navbar_link {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.navbar_link:hover {
+    background-color: var(--secondary-color);
+}
+
+.navbar_logout-form {
+    display: inline;
+}
+
+.navbar_logout-button {
+    background-color: var(--danger-color);
+    color: var(--text-color);
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.navbar_logout-button:hover {
+    background-color: var(--danger-hover-color);
+}
+
+/* Main Content */
+.main-content {
+    padding: 20px;
+}
