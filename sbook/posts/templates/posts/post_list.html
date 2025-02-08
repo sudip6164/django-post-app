@@ -15,11 +15,6 @@
             {% if post.image %}
                 <img src="{{ post.image.url }}" alt="Post Image">
             {% endif %}
-
-            {% if post.user == request.user %}
-            <a href="{% url 'post_edit' post.pk %}">Edit</a>
-            <a href="{% url 'post_delete' post.pk %}">Delete</a>
-            {% endif %}
             </li>
     {% endfor %}
   </ul>
