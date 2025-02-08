@@ -3,6 +3,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from .forms import ProfileForm
 
 # Create your views here.
 def signup_view(request):
@@ -39,3 +40,14 @@ def profile(request, username):
         'posts': posts,
     }
     return render(request, 'users/profile.html', context)
+
+@login_required
+def profile_edit(request, username):
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, request.FILES, instance=request.user.profile)
+        if form.is_valid():
+            form.save()
+            return redirect('profile', username=request.user.username)
+    else:
+        form = ProfileForm(instance=request.user.profile)
+    return render(request, 'users/profile_edit.html', {'form': form})
