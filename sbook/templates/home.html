@@ -5,6 +5,10 @@
     Home
 {% endblock %}
 
+{% block additional_css %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock additional_css %}
+
 {% block content %}
 <section class="welcome-section">
     <h1>Welcome to Our Social Media App!</h1>
