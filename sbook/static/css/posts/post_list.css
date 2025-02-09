@@ -1,0 +1,100 @@
+/* post_list.css */
+
+/* Post List Section */
+.post-list-section {
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+.post-list-section h2 {
+    font-size: 2em;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.post-list{
+    list-style: none;
+}
+
+.create-post-link {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    transition: background-color 0.3s;
+}
+
+.create-post-link:hover {
+    background-color: var(--secondary-color);
+}
+
+.post-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.profile-picture {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.post-user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.username {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.post-time {
+    font-size: 0.9em;
+    color: #888;
+}
+
+.post-content {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.post-image {
+    max-width: 100%;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.post-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.post-actions button {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    cursor: pointer;
+    font-size: 1em;
+    transition: color 0.3s;
+}
+
+.post-actions button:hover {
+    color: var(--secondary-color);
+}
