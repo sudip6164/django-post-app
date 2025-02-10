@@ -1,10 +1,21 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    Edit Profile
+{% endblock %}
+
+{% block additional_css %}
+    <link rel="stylesheet" href="{% static 'css/users/profile_edit.css' %}">
+{% endblock %}
 
 {% block content %}
-  <h2>Edit Profile</h2>
-  <form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Save changes</button>
-  </form>
+<section class="edit-profile-section">
+    <h2>Edit Profile</h2>
+    <form method="post" enctype="multipart/form-data" class="edit-profile-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save-changes-button">Save changes</button>
+    </form>
+</section>
 {% endblock %}

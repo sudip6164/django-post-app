@@ -1,0 +1,69 @@
+/* profile_edit.css */
+
+/* Container for the edit profile section */
+.edit-profile-section {
+    margin: 20px auto;
+    max-width: 600px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading style */
+.edit-profile-section h2 {
+    font-size: 1.8em;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Form styling */
+.edit-profile-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Input and textarea styling */
+.edit-profile-form input[type="text"],
+.edit-profile-form input[type="email"],
+.edit-profile-form input[type="file"],
+.edit-profile-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+/* Submit button styling */
+.save-changes-button {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.save-changes-button:hover {
+    background-color: var(--secondary-color);
+}
+
+/* profile_edit.css */
+
+/* Bio textarea styling */
+.bio-input {
+    height: 100px;
+    resize: vertical;
+}
+
+/* Profile picture input styling */
+.profile-picture-input {
+    padding: 5px;
+}
+
