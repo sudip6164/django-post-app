@@ -1,0 +1,76 @@
+/* signup.css */
+
+/* Styling for the sign-up container */
+.signup-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+/* Header style */
+.signup-container h2 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+/* General form field styling */
+.form-field {
+    margin-bottom: 15px;
+}
+
+.form-field label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.form-field input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+/* Style all help text including Django's default help text */
+.help-text,
+form ul {  /* Target Django's default password help text list */
+    font-size: 0.85em;
+    color: #666;
+    margin-top: 5px;
+}
+
+/* Target the password field's help text specifically */
+form ul {
+    margin: 5px 0;
+    padding-left: 20px;
+}
+
+form ul li {
+    margin-bottom: 4px;
+    line-height: 1.4;
+}
+
+/* Button styling */
+button {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+    width: 100%;
+}
+
+button:hover {
+    background-color: var(--secondary-color);
+}
