@@ -41,7 +41,7 @@
                     </div>
                     <p class="post-content">{{ post.content }}</p>
                     {% if post.image %}
-                        <img src="{{ post.image.url }}" alt="Post Image" class="post-image">
+                        <img src="{{ post.image.url }}" alt="Post Image" class="post-image" width="800px" height='400px' style="object-fit:contain">
                     {% endif %}
                     <div class="post-actions">
                         <button class="like-button">Like</button>
