@@ -1,10 +1,12 @@
-# Dockerfile
 FROM python:3.12.8
 
 # Set working directory
 WORKDIR /app
 
-# Install dependencies
+# Install system dependencies (including netcat)
+RUN apt-get update && apt-get install -y netcat-openbsd
+
+# Install Python dependencies
 COPY requirements.txt requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
