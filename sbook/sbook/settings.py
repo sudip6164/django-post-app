@@ -80,9 +80,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'sbook_db',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': 'db',
+        'USER': 'mysql',
+        'PASSWORD': 'mysql',
+        'HOST': 'host.docker.internal',
         'PORT': '3306',
     }
 }

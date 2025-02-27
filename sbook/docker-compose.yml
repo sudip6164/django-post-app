@@ -1,13 +1,12 @@
-version: '3.8'
-
 services:
   db:
-    image: mariadb:10.5.27
+    image: mysql:9.2.0
     restart: always
     environment:
       MYSQL_DATABASE: 'sbook_db'
-      MYSQL_ROOT_PASSWORD: null
-      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+      MYSQL_ROOT_PASSWORD: 'rootpassword'
+      MYSQL_USER: 'mysql'
+      MYSQL_PASSWORD: 'mysql'
     ports:
       - "3306:3306"
     volumes:
@@ -20,12 +19,38 @@ services:
 
   web:
     build: .
-    command: bash -c "sleep 10 && python manage.py runserver 0.0.0.0:8000"
+    command: bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
     volumes:
       - .:/app
     ports:
       - "8000:8000"
     depends_on:
+      - db
+    links:
+      - db
+    environment:
+      - DB_HOST=db
+      - DB_NAME=sbook_db
+      - DB_USER=mysql
+      - DB_PASSWORD=mysql
+      - DB_PORT=3306
+    logging:
+      driver: json-file
+      options:
+        max-size: '10m'
+        max-file: '3'
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    restart: always
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: 'rootpassword'
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+    links:
       - db
     logging:
       driver: json-file
