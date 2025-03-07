@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from .models import Post
 from .forms import PostForm
+from django.http import JsonResponse
 
 # Create your views here.
 def post_list(request):
@@ -40,4 +41,16 @@ def post_delete(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if post.user == request.user:
         post.delete()
+    return redirect('post_list')
+
+@login_required
+def like_post(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+    user = request.user
+    
+    if user in post.likes.all():
+        post.likes.remove(user)
+    else:
+        post.likes.add(user)
+    
     return redirect('post_list')

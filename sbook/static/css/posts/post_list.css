@@ -100,3 +100,37 @@
 .post-actions button:hover {
     color: var(--secondary-color);
 }
+
+.post-likes {
+    padding: 5px 10px;
+    color: #65676b;
+    font-size: 0.9em;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 5px;
+}
+
+.like-button {
+    background: none;
+    border: none;
+    color: #65676b;
+    cursor: pointer;
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.like-button:hover {
+    background: #f0f2f5;
+    border-radius: 5px;
+}
+
+.like-button.liked {
+    color: #1877f2;
+}
+
+.post-actions {
+    display: flex;
+    gap: 10px;
+    padding: 5px 10px;
+}

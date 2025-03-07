@@ -34,7 +34,17 @@
                     <img src="{{ post.image.url }}" alt="Post Image" class="post-image" width="800px" height='400px' style="object-fit:contain">
                 {% endif %}
                 <div class="post-actions">
-                    <button class="like-button"><i class="fa-regular fa-thumbs-up"></i> Like</button>
+                    {% if user.is_authenticated %}
+                        <form method="post" action="{% url 'like_post' post_id=post.id %}">
+                            {% csrf_token %}
+                            <button type="submit" class="like-button {% if user in post.likes.all %}liked{% endif %}">
+                                <i class="fa-regular fa-thumbs-up"></i> 
+                                {% if user in post.likes.all %}Unlike{% else %}Like{% endif %}
+                            </button>
+                        </form>
+                    {% else %}
+                        <button class="like-button" disabled><i class="fa-regular fa-thumbs-up"></i> Like</button>
+                    {% endif %}
                     <button class="comment-button"><i class="fa-regular fa-comment"></i> Comment</button>
                     <button class="share-button"><i class="fa-solid fa-share"></i> Share</button>
                 </div>
