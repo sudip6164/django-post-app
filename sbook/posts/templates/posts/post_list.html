@@ -33,6 +33,9 @@
                 {% if post.image %}
                     <img src="{{ post.image.url }}" alt="Post Image" class="post-image" width="800px" height='400px' style="object-fit:contain">
                 {% endif %}
+                <div class="post-likes">
+                    <span class="like-count">{{ post.total_likes }} likes</span>
+                </div>
                 <div class="post-actions">
                     {% if user.is_authenticated %}
                         <form method="post" action="{% url 'like_post' post_id=post.id %}">
