@@ -126,7 +126,7 @@
 }
 
 .like-button.liked {
-    var(--primary-color);
+    color:var(--primary-color);
 }
 
 .post-actions {
